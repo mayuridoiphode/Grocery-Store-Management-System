@@ -5,7 +5,7 @@ from django.utils.text import slugify
 class Category(models.Model):
     category_name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100,blank=True)
-    @property
+    #@property
     def save(self, *args, **kwargs):
         self.slug = slugify(self.category_name)
         super(Category,self).save(*args, **kwargs)
@@ -60,7 +60,7 @@ class Product(models.Model):
 
 
 class ProductImages(models.Model):
-    product_name = models.ForeignKey(Product, on_delete=models.PROTECT)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
     image = models.ImageField(upload_to='static/products',default='default.jpg')
 
     

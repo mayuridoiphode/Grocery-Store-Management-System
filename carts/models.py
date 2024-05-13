@@ -9,7 +9,7 @@ from django.db.models.signals import pre_save, post_save
 # Create your models here.
 class Cart(models.Model):
     # objects = None
-    objects = None
+    #objects = None
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     ordered = models.BooleanField(default=False)
     total_price = models.FloatField(default=0)

@@ -13,7 +13,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
+    category = CategorySerializer()       #because category stored as foreignkey
     quantity_type = QuantitySerializer()
     class Meta:
         model = Product
